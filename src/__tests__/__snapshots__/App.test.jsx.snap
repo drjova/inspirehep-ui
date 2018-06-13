@@ -18,6 +18,10 @@ exports[`App renders initial state 1`] = `
       />
       <Route
         component={[Function]}
+        path="/user"
+      />
+      <Route
+        component={[Function]}
         path="/holdingpen"
       />
       <Route

@@ -20,6 +20,10 @@ const Home$ = Loadable({
   loader: () => import('./home'),
   loading: Loading,
 });
+const User$ = Loadable({
+  loader: () => import('./user'),
+  loading: Loading,
+});
 
 class App extends Component {
   componentDidMount() {
@@ -33,6 +37,7 @@ class App extends Component {
         <Layout.Content className="content">
           <Switch id="main">
             <Route exact path="/" component={Home$} />
+            <Route path="/user" component={User$} />
             <Route path="/holdingpen" component={Holdingpen$} />
             <Route path="/literature" component={Literature$} />
           </Switch>

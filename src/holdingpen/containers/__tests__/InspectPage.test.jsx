@@ -49,5 +49,22 @@ describe('Inspect Page', () => {
     expect(actions.some(action => action.type === INSPECT_REQUEST)).toBe(true);
   });
 
-  // TODO: test loading: true
+  it('renders with loading', () => {
+    const store = getStoreWithState({
+      inspect: Map({
+        loading: true,
+        data: Map({
+          head: { value: 'head' },
+          update: { value: 'update' },
+          root: { value: 'root' },
+          merged: { value: 'merged' },
+        }),
+      }),
+    });
+
+    const wrapper = shallow(<InspectPage match={matchProps} store={store} />)
+      .dive()
+      .dive();
+    expect(wrapper).toMatchSnapshot();
+  });
 });

@@ -35,10 +35,37 @@ describe('AuthorLink', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('renders full author without first_name', () => {
+    const author = fromJS({
+      full_name: 'Name Full',
+      last_name: 'Last Name',
+      affiliations: [
+        {
+          value: 'Affiliation',
+        },
+      ],
+    });
+    const wrapper = shallow(<AuthorLink author={author} />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('renders full author without last_name', () => {
     const author = fromJS({
       full_name: 'Name Full',
       first_name: 'Name Full',
+      affiliations: [
+        {
+          value: 'Affiliation',
+        },
+      ],
+    });
+    const wrapper = shallow(<AuthorLink author={author} />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders full author without first_name and last_name', () => {
+    const author = fromJS({
+      full_name: 'Name Full',
       affiliations: [
         {
           value: 'Affiliation',
